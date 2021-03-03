@@ -162,8 +162,7 @@ trait WithMetaTrait
                 }
                 $query->where('meta_key', $operator, $key);
 
-                return is_null($value) ? $query :
-                    $query->where('meta_value', $operator, $value);
+                return $value === null ? $query : $query->where('meta_value', $operator, $value);
             });
         }
 
