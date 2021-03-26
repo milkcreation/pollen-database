@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pollen\Database;
+namespace Pollen\Database\Drivers\Laravel;
 
 use Illuminate\Database\Eloquent\Model as BaseModel;
 use Pollen\Database\Concerns\ColumnsAwareTrait;

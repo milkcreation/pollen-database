@@ -7,6 +7,6 @@ namespace Pollen\Database;
 /**
  * @mixin \Illuminate\Database\Capsule\Manager
  */
-interface DatabaseInterface
+interface DatabaseManagerInterface
 {
 }
