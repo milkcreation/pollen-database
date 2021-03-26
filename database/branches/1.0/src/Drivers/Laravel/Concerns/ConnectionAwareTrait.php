@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pollen\Database\Concerns;
+namespace Pollen\Database\Drivers\Laravel\Concerns;
 
 /**
  * @mixin \Illuminate\Database\Eloquent\Model
