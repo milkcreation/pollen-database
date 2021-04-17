@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Pollen\Database;
 
 use Illuminate\Database\Capsule\Manager as BaseDatabaseManager;
-use RuntimeException;
+use Pollen\Support\Exception\ManagerRuntimeException;
 
 class DatabaseManager extends BaseDatabaseManager implements DatabaseManagerInterface
 {
@@ -19,6 +19,6 @@ class DatabaseManager extends BaseDatabaseManager implements DatabaseManagerInte
         if (self::$instance instanceof self) {
             return self::$instance;
         }
-        throw new RuntimeException(sprintf('Unavailable [%s] instance', __CLASS__));
+        throw new ManagerRuntimeException(sprintf('Unavailable [%s] instance', __CLASS__));
     }
 }
