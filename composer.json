@@ -7,7 +7,7 @@
     "component",
     "cookie"
   ],
-  "time": "2021-04-29",
+  "time": "2021-05-03",
   "license": "MIT",
   "authors": [
     {
@@ -26,6 +26,7 @@
     "php": ">=7.4",
     "composer/composer": "^2.0",
     "composer/installers": "~1.0",
+    "doctrine/dbal": "^3.1",
     "illuminate/database": "^8.0",
     "illuminate/pagination": "^8.0",
     "pollen-solutions/support": "^1.0"
