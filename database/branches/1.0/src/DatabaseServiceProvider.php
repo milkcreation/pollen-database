@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Pollen\Database;
 
-use Pollen\Container\BaseServiceProvider;
+use Pollen\Container\BootableServiceProvider;
 
-class DatabaseServiceProvider extends BaseServiceProvider
+class DatabaseServiceProvider extends BootableServiceProvider
 {
     /**
      * @var string[]
