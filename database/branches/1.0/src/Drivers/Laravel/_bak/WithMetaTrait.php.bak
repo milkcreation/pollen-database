@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\{Builder, Model};
 use Illuminate\Support\Collection;
 use tiFy\Contracts\Database\WithMetaTrait as WithMetaTraitContract;
 use tiFy\Database\{MetaCollection, MetaModel};
-use tiFy\Support\{Arr, Str};
+use Pollen\Support\Arr;
+use Pollen\Support\Str;
 
 /**
  * @mixin WithMetaTraitContract

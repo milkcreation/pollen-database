@@ -7,7 +7,7 @@ namespace Pollen\Database\Drivers\Laravel\Concerns;
 /**
  * @mixin \Illuminate\Database\Eloquent\Model
  * @mixin \Illuminate\Database\Eloquent\Builder
- * @see \Pollen\Database\Concerns\ColumnsAwareTraitInterface
+ * @see \Pollen\Database\Drivers\Laravel\Concerns\ColumnsAwareTraitInterface
  */
 trait ColumnsAwareTrait
 {
