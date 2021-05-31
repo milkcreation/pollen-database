@@ -2,13 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Pollen\Database\Drivers\Laravel\Eloquent\Casts;
+namespace Pollen\Database\Eloquent\Casts;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+use Pollen\Support\Arr;
 use Pollen\Support\Str;
 
-class TypeCast implements CastsAttributes
+class SerializedCast implements CastsAttributes
 {
     /**
      * @param Model $model
@@ -16,31 +17,23 @@ class TypeCast implements CastsAttributes
      * @param mixed $value
      * @param array $attributes
      *
-     * @return mixed
+     * @return array
      */
     public function get($model, $key, $value, $attributes)
     {
-        if (is_numeric($value)) {
-            return (int)$value;
-        }
-
-        if ($value === 'true' || $value === 'false' || $value === 'yes' || $value === 'no') {
-            return filter_var($value, FILTER_VALIDATE_BOOLEAN);
-        }
-
         return Str::unserialize($value);
     }
 
     /**
      * @param Model $model
      * @param string $key
-     * @param mixed $value
+     * @param array $value
      * @param array $attributes
      *
-     * @return mixed
+     * @return string
      */
     public function set($model, $key, $value, $attributes)
     {
-        return $value;
+        return Arr::serialize($value);
     }
 }

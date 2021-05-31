@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Pollen\Database\Drivers\Laravel\Concerns;
+namespace Pollen\Database\Eloquent\Concerns;
 
 /**
  * @mixin \Illuminate\Database\Eloquent\Model
  * @mixin \Illuminate\Database\Eloquent\Builder
- * @see \Pollen\Database\Drivers\Laravel\Concerns\ColumnsAwareTraitInterface
+ * @see \Pollen\Database\Eloquent\Concerns\ColumnsAwareTraitInterface
  */
 trait ColumnsAwareTrait
 {
