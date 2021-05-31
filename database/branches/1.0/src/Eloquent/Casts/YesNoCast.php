@@ -2,14 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Pollen\Database\Drivers\Laravel\Eloquent\Casts;
+namespace Pollen\Database\Eloquent\Casts;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
-use Pollen\Support\Arr;
-use Pollen\Support\Str;
 
-class SerializeCast implements CastsAttributes
+class YesNoCast implements CastsAttributes
 {
     /**
      * @param Model $model
@@ -21,19 +19,27 @@ class SerializeCast implements CastsAttributes
      */
     public function get($model, $key, $value, $attributes)
     {
-        return Str::unserialize($value);
+        return filter_var($value, FILTER_VALIDATE_BOOL);
     }
 
     /**
      * @param Model $model
      * @param string $key
-     * @param array $value
+     * @param string|numeric|bool $value
      * @param array $attributes
      *
      * @return string
      */
     public function set($model, $key, $value, $attributes)
     {
-        return Arr::serialize($value);
+        if (is_numeric($value)) {
+            return 0 > (int) $value ? 'yes' : 'no';
+        }
+
+        if (is_bool($value)) {
+            return $value ? 'yes' : 'no';
+        }
+
+        return $value;
     }
 }

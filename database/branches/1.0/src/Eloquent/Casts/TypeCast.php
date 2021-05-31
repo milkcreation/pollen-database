@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Pollen\Database\Drivers\Laravel\Eloquent\Casts;
+namespace Pollen\Database\Eloquent\Casts;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+use Pollen\Support\Str;
 
-class YesNoCast implements CastsAttributes
+class TypeCast implements CastsAttributes
 {
     /**
      * @param Model $model
@@ -15,31 +16,31 @@ class YesNoCast implements CastsAttributes
      * @param mixed $value
      * @param array $attributes
      *
-     * @return array
+     * @return mixed
      */
     public function get($model, $key, $value, $attributes)
     {
-        return filter_var($value, FILTER_VALIDATE_BOOL);
+        if (is_numeric($value)) {
+            return (int)$value;
+        }
+
+        if ($value === 'true' || $value === 'false' || $value === 'yes' || $value === 'no') {
+            return filter_var($value, FILTER_VALIDATE_BOOLEAN);
+        }
+
+        return Str::unserialize($value);
     }
 
     /**
      * @param Model $model
      * @param string $key
-     * @param string|numeric|bool $value
+     * @param mixed $value
      * @param array $attributes
      *
-     * @return string
+     * @return mixed
      */
     public function set($model, $key, $value, $attributes)
     {
-        if (is_numeric($value)) {
-            return 0 > (int) $value ? 'yes' : 'no';
-        }
-
-        if (is_bool($value)) {
-            return $value ? 'yes' : 'no';
-        }
-
         return $value;
     }
 }

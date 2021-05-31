@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pollen\Database\Drivers\Laravel\Concerns;
+namespace Pollen\Database\Eloquent\Concerns;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
