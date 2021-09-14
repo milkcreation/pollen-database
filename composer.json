@@ -1,26 +1,20 @@
 {
   "name": "pollen-solutions/database",
   "description": "Pollen Database Component",
-  "homepage": "https://www.presstify.com/pollen-solutions/database/",
+  "homepage": "https://github.com/milkcreation/pollen-database.git",
   "keywords": [
     "pollen-solutions",
     "component",
     "database",
     "eloquent"
   ],
-  "time": "2021-05-31",
+  "time": "2021-09-14",
   "license": "MIT",
   "authors": [
     {
       "name": "Jordy Manner",
       "email": "jordy@presstify.com",
       "role": "Developper"
-    }
-  ],
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://composer.presstify.com/pollen-solutions/"
     }
   ],
   "require": {
